@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
+
+:root{
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100%;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+    height: 100%;
+}
+
+
+
+@media (max-width: 450px) {
+  html {
+    font-size: 62.5%;
+  }
+}

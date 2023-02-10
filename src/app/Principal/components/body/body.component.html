@@ -1,0 +1,6 @@
+<div class="body" [ngClass]="getBodyClass()" [ngStyle]="styleObject()">
+  <router-outlet></router-outlet>
+</div>
+
+<div (click)="ocultarSidenav()" *ngIf="collapsed && sizeVentana <= 1411" style="width: 100vw; height: 100vh; position: fixed; top: 0 ;left: 0; background-color: rgba(0, 0, 0, 0.6);">
+</div>

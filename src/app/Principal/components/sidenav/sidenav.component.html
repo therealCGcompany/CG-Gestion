@@ -1,0 +1,83 @@
+<header class="topbar">
+  <nav class="navbar top-navbar navbar-expand-md navbar-light">
+    <div class="navbar-header" [ngClass]="collapsed?'navbar-header-collapsed':''">
+      <a class="navbar-brand" href="index.html">
+          <!-- Logo icon -->
+          <b style="margin:0 1rem ;">
+              <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+              <!-- Dark Logo icon -->
+              <img src="assets/images/cg-logo.png" alt="homepage" class="dark-logo" />
+              <!-- Light Logo icon -->
+          </b>
+          <!--End Logo icon -->
+          <!-- Logo text -->
+          <span style="margin:0 1rem ;" @fadeInOut *ngIf="collapsed">
+           <!-- dark Logo text -->
+           <img src="assets/images/cg-img.png" alt="homepage" class="dark-logo" />
+           <!-- Light Logo text -->
+          </span> </a>
+    </div>
+    <div class="navbar-collapse">
+      <!-- ============================================================== -->
+      <!-- toggle and nav items -->
+      <!-- ============================================================== -->
+      <ul class="navbar-nav mr-auto">
+          <!-- This is  -->
+          <li class="nav-item"> <a (click)="toggleCollapse()" class="nav-link waves-effect" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+          <li class="nav-item hidden-sm-down"></li>
+      </ul>
+      <!-- ============================================================== -->
+      <!-- User profile and search -->
+      <!-- ============================================================== -->
+  </div>
+  </nav>
+</header>
+<aside class="sidenav" [ngClass]="collapsed?'sidenav-collapsed':''">
+
+  <div class="scrollwrap scrollwrap_delayed" style="margin-top: 70px;">
+    <ul class="sidenav-nav" [ngClass]="!collapsed?'padd-collapsed':'padd-open'">
+      <li class="sidenav-nav-item" *ngFor="let data of navData" [ngClass]="!data.expanded?'':'activado'">
+        <a class="sidenav-nav-link"
+           (click)="handleClick(data)"
+           *ngIf="data.items && data.items.length>0"
+           [ngClass]="getActiveClass(data)"
+           [class]="getStyle(data)">
+          <i class="sidenav-link-icon" [class]="data.icon"></i>
+          <span class="sidenav-link-text" [class]="collapsed?'':'text-collapsed'">
+            {{data.label}}
+          </span>
+        </a>
+
+        <a class="sidenav-nav-link"
+           *ngIf="!data.items || (data.items && data.items.length===0)"
+           [routerLink]="[data.routerLink]"
+           routerLinkActive="active"
+           [routerLinkActiveOptions]="{exact:true}"
+           [class]="!collapsed? 'border-radius':''"
+           (click)="shrinkItems(data)">
+          <i class="sidenav-link-icon" [class]="data.icon"></i>
+          <span class="sidenav-link-text"  [class]="collapsed?'':'text-collapsed'">
+            {{data.label}}
+          </span>
+        </a>
+        <div style="padding-left: 2.8rem;" *ngIf="data.items && data.items.length>0">
+          <app-sublevel-menu
+            [data]="data"
+            [collapsed]="collapsed"
+            [multiple]="multiple"
+            [expanded]="data.expanded"
+          ></app-sublevel-menu>
+        </div>
+        <div [class]="!collapsed? 'elem-sidenav-collapsed': ''" style="padding-left: 2.8rem;" *ngIf="data.items && data.items.length>0">
+          <app-sublevel-menu
+            [data]="data"
+            [collapsed]="!collapsed"
+            [multiple]="multiple"
+            [expanded]="true"
+          ></app-sublevel-menu>
+        </div>
+      </li>
+    </ul>
+  </div>
+</aside>
+
