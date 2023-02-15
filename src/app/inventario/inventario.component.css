@@ -1,0 +1,17 @@
+.table-container{
+  border-radius: .5rem;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
+  background-color: #ffffff;
+  padding: 0!important;
+}
+
+tbody tr:hover{
+  transition: .3s;
+  background-color: #27044742;
+  cursor: pointer;
+}
+
+table{
+  background-color: #ffffff;
+  margin: 0;
+}

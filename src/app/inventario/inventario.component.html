@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-3">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="buscar" name="buscar"  placeholder="Buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-success" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
+      </div>
+    </div>
+    <hr class="">
+    <div class="row mb-4">
+      <div class="col-12">
+        <h6>Busqueda avanzada<a data-bs-toggle="collapse" href="#busquedaAvanzada" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-caret-down-fill" style="color: black;"></i></a></h6>
+      </div>
+      <div class="collapse" id="busquedaAvanzada">
+        <div class="row">
+          <div class="col-3">          
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown button
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item active" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Separated link</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-3"><button type="button" class="btn btn-outline-success">Buscar</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row ms-3 me-3">
+  <div class="table-container">
+    <div class="table-responsive card">
+      <table class="table table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr *ngFor="let item of tabla | filter:buscar">
+            <td>{{item.id}}</td>
+            <td>{{item.first}}</td>
+            <td>{{item.last}}</td>
+            <td>{{item.handle}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

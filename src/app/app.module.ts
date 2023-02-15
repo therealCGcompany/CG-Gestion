@@ -8,6 +8,7 @@ import { BodyComponent } from './Principal/components/body/body.component';
 import { SidenavComponent } from './Principal/components/sidenav/sidenav.component';
 import { SublevelMenuComponent } from './Principal/components/sidenav/sublevel-menu.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InventarioModule } from './inventario/inventario.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    InventarioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
